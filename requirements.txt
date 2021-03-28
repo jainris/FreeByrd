@@ -1,0 +1,14 @@
+Lasagne @ https://github.com/Lasagne/Lasagne/archive/master.zip
+pandas
+pytest
+h5py
+noisereduce
+Theano @ https://github.com/Theano/Theano/archive/master.zip
+SoundFile
+librosa
+numpy
+Keras
+scipy
+birdvoxdetect==0.5.0
+pydub
+scikit_learn
