@@ -17,6 +17,7 @@ Our solution implements a pipeline, which consists of 3 parts:
 
 ---
 ## Installation
+1. The folder named [Release](./Release) contains the [main application executable](./Release/freebyrd.exe).
 1. Requires Python 3.8 64-bit or later
     * Downloads Page: https://www.python.org/downloads/
     * Guide: https://wiki.python.org/moin/BeginnersGuide/Download

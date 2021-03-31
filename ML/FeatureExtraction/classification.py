@@ -5,7 +5,8 @@ from pydub import AudioSegment
 from ML.FeatureExtraction import birdNET_preprocess
 
 
-model_path = path.join(path.dirname(__file__), "model/birdNet")
+model_path = path.join(path.dirname(__file__), "model")
+model_path = path.join(model_path, "birdNet")
 model = i.load_model(model_path)
 
 

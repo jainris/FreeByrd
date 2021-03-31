@@ -100,10 +100,12 @@ packages:
   flutter_audio_desktop:
     dependency: "direct main"
     description:
-      name: flutter_audio_desktop
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.1"
+      path: "."
+      ref: HEAD
+      resolved-ref: "63d5823facbab34358875c6722874f950eb10393"
+      url: "git://github.com/jainris/flutter_audio_desktop.git"
+    source: git
+    version: "0.1.0"
   flutter_bloc:
     dependency: "direct main"
     description:
