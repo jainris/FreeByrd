@@ -31,10 +31,13 @@ Our solution implements a pipeline, which consists of 3 parts:
 ## Note
 * Made with Windows as platform in mind.
 * Made with help from:
-    * @rmlshao
-    * @max-kaufmann
-    * @Alex4877
-    * @erin-cox
+
+|GitHub Username|Helped with/Contributions|
+|---------------|-----------------------|
+|@rmlshao|[Python Output Gen](./ML/output.py), [Utils](./ML/Utils), [birdNET Preprocessing](./ML/FeatureExtraction/birdNET_preprocess.py) |
+|@max-kaufmann|[birdNET adaptation](./ML/FeatureExtraction)|
+|@Alex4877||
+|@erin-cox||
 
 ---
 ## Licenses
