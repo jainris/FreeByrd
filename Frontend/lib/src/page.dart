@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:app12/main.dart';
+import 'package:freebyrd/main.dart';
 import 'package:flutter/material.dart';
 
 import 'form.dart';
 import 'bloc_2/main_bloc.dart';
-import 'package:app12/src/loaded.dart';
+import 'package:freebyrd/src/loaded.dart';
 
 class PageGen extends StatelessWidget {
   final i;

@@ -1,5 +1,5 @@
-import 'package:app12/src/bloc/form_bloc.dart';
-import 'package:app12/src/bloc_2/main_bloc.dart';
+import 'package:freebyrd/src/bloc/form_bloc.dart';
+import 'package:freebyrd/src/bloc_2/main_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -48,7 +48,7 @@ class MainApp extends StatelessWidget {
             return BlocProvider(
               create: (_) => FormBloc(),
               child: MaterialApp(
-                title: 'Byrd Detect',
+                title: 'FreeByrd',
                 theme: ThemeData(primarySwatch: Colors.teal),
                 home: PageGen(state),
               ),
@@ -63,7 +63,7 @@ class TitleWidg extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(8),
-      child: Text('Byrd Detect'),
+      child: Text('FreeByrd'),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:app12/main.dart';
+import 'package:freebyrd/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_audio_desktop/flutter_audio_desktop.dart';
 

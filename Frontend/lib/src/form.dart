@@ -1,5 +1,5 @@
-import 'package:app12/main.dart';
-import 'package:app12/src/bloc/form_bloc.dart';
+import 'package:freebyrd/main.dart';
+import 'package:freebyrd/src/bloc/form_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:filepicker_windows/filepicker_windows.dart';
