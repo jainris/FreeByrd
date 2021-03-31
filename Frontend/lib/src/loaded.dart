@@ -18,6 +18,7 @@ class LoadedPage extends StatefulWidget {
 class _LoadedPageState extends State<LoadedPage> {
   final List<List<String>> data;
   final String outputFile;
+  final double width = 410;
   List<int> values = [];
   List<bool> checked = [];
   List<Widget> rows = [];
@@ -45,6 +46,7 @@ class _LoadedPageState extends State<LoadedPage> {
           ));
     }
   }
+
   @override
   Widget build(BuildContext context) {
     int total = 0;
@@ -75,48 +77,51 @@ class _LoadedPageState extends State<LoadedPage> {
       body: Scrollbar(
         child: Align(
           alignment: Alignment.topCenter,
-          child: Column(
-            children: [
-              Card(
-                child: SingleChildScrollView(
-                  padding: EdgeInsets.all(16),
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 400, minWidth: 400),
-                    child: Text("Below is the result obtained from running the application." +
-                        "\n\nHere, each row represents a distinct clustered group. " +
-                        "The number of seconds in which a call is detected for each type is also presented. " +
-                        "For greater details on the timestamps of these detections, please open the csv file which is saved as " +
-                        this.outputFile +
-                        ".\n\nAlso, below are five (or lesser in case of lesser than five total calls detected for that type) samples for each type." +
-                        "\n\nAt the bottom, there is the sum of counts of ticked types using the appropiate checkboxes."),
-                  ),
-                ),
-              ),
-              Card(
-                child: SingleChildScrollView(
-                  padding: EdgeInsets.all(16),
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 400, minWidth: 400),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: rowsWithCheckboxes,
+          child: SingleChildScrollView(
+            padding: EdgeInsets.all(16),
+            child: Scrollbar(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Column(
+                  children: [
+                    Card(
+                      child: Container(
+                        width: this.width,
+                        padding: EdgeInsets.all(16),
+                        child: Text("Below is the result obtained from running the application." +
+                            "\n\nHere, each row represents a distinct clustered group. " +
+                            "The number of seconds in which a call is detected for each type is also presented. " +
+                            "For greater details on the timestamps of these detections, please open the csv file which is saved as " +
+                            this.outputFile +
+                            ".\n\nAlso, below are five (or lesser in case of lesser than five total calls detected for that type) samples for each type." +
+                            "\n\nAt the bottom, there is the sum of counts of ticked types using the appropiate checkboxes."),
+                      ),
                     ),
-                  ),
+                    Card(
+                      child: Container(
+                        width: this.width,
+                        padding: EdgeInsets.all(16),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: rowsWithCheckboxes,
+                        ),
+                      ),
+                    ),
+                    Card(
+                      child: Container(
+                        width: this.width,
+                        padding: EdgeInsets.all(16),
+                        child: Text(
+                          "Total: " + total.toString(),
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              Card(
-                child: SingleChildScrollView(
-                  padding: EdgeInsets.all(16),
-                  child: ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 400, minWidth: 400),
-                      child: Text(
-                        "Total: " + total.toString(),
-                        style: Theme.of(context).textTheme.subtitle1,
-                      )),
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),

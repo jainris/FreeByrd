@@ -11,35 +11,41 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   @override
   Stream<MainState> mapEventToState(MainEvent event) async* {
     if (event is SubmitMainEvent) {
+      ProcessResult result;
       yield Loading();
-      var command = Directory.current.parent.path;
+      try {
+        var command = Directory.current.parent.path;
 
-      List<String> args = event.state.convToArgs();
-      print(args);
+        List<String> args = event.state.convToArgs();
+        print(args);
 
-      var string = "";
-      for (var arg in args) {
-        string += arg + " ";
+        var string = "";
+        for (var arg in args) {
+          string += arg + " ";
+        }
+
+        command = "cd " + command + " & thefiletoberun.bat " + string;
+        result = await Process.run(command, [], runInShell: true);
+
+        List<List<String>> data = [];
+
+        String filePath =
+            p.join(event.state.outputDir, "flutter_aux_output.csv");
+
+        var input = File(filePath).openRead();
+        var fs = await input
+            .transform(utf8.decoder)
+            .transform(new LineSplitter())
+            .listen((String line) {
+          List<String> row = line.split(',');
+          data.add(row);
+          print(data);
+          print(row.toList());
+        }).asFuture();
+        yield Loaded(event.state.outputFile, data);
+      } catch (e) {
+        yield Error(e, result);
       }
-
-      command = "cd " + command + " & thefiletoberun.bat " + string;
-      var result = await Process.run(command, [], runInShell: true);
-
-      List<List<String>> data = [];
-
-      String filePath = p.join(event.state.outputDir, "flutter_aux_output.csv");
-
-      var input = File(filePath).openRead();
-      var fs = await input
-          .transform(utf8.decoder)
-          .transform(new LineSplitter())
-          .listen((String line) {
-        List<String> row = line.split(',');
-        data.add(row);
-        print(data);
-        print(row.toList());
-      }).asFuture();
-      yield Loaded(event.state.outputFile, data);
     }
   }
 }
@@ -63,4 +69,11 @@ class Loaded extends MainState {
   final data;
 
   Loaded(this.outputFile, this.data);
+}
+
+class Error extends MainState {
+  final Exception e;
+  final ProcessResult r;
+
+  Error(this.e, this.r);
 }
