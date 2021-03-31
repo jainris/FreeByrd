@@ -49,3 +49,5 @@ and so uses GNU GPL v3.0 license, which has been included in its directory
 Feature Extraction uses BirdNET model https://github.com/kahst/BirdNET
 and so uses MIT license, which has been included in its directory
 ([ML\FeatureExtraction\LICENSE](./ML/FeatureExtraction/LICENSE))
+#### Rest
+Rest of the project is under [MIT License](./LICENSE)
