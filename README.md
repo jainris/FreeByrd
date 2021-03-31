@@ -23,9 +23,6 @@ Our solution implements a pipeline, which consists of 3 parts:
     * Guide: https://wiki.python.org/moin/BeginnersGuide/Download
     * The Path variable must be set to include python and it's libraries
      (refer to https://docs.python.org/3/using/windows.html for how-to)
-1. Requires installation of the birdNET model.
-    * Download from https://tuc.cloud/index.php/s/m9smX4FkqmJaxLW/download.
-    * Save it as \path\to\project\ML\FeatureExtraction\model\birdNet  (note no extension).
 
 ---
 ## Note

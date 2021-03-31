@@ -3,10 +3,13 @@ import numpy as np
 from os import path
 from pydub import AudioSegment
 from ML.FeatureExtraction import birdNET_preprocess
+import wget
 
 
 model_path = path.join(path.dirname(__file__), "model")
 model_path = path.join(model_path, "birdNet")
+if not (path.exists(model_path)):
+    wget.download("https://tuc.cloud/index.php/s/m9smX4FkqmJaxLW/download", model_path)
 model = i.load_model(model_path)
 
 
