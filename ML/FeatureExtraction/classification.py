@@ -4,12 +4,21 @@ from os import path
 from pydub import AudioSegment
 from ML.FeatureExtraction import birdNET_preprocess
 import wget
-
+import ssl
 
 model_path = path.join(path.dirname(__file__), "model")
 model_path = path.join(model_path, "birdNet")
 if not (path.exists(model_path)):
-    wget.download("https://tuc.cloud/index.php/s/m9smX4FkqmJaxLW/download", model_path)
+    try:
+        wget.download(
+            "https://tuc.cloud/index.php/s/m9smX4FkqmJaxLW/download", model_path
+        )
+    except:
+        # Maybe an unverified SSL error
+        ssl._create_default_https_context = ssl._create_unverified_context
+        wget.download(
+            "https://tuc.cloud/index.php/s/m9smX4FkqmJaxLW/download", model_path
+        )
 model = i.load_model(model_path)
 
 
