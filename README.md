@@ -31,8 +31,8 @@ Our solution implements a pipeline, which consists of 3 parts:
 
 |GitHub Username|Helped with/Contributions|
 |---------------|-----------------------|
-|@rmlshao|[Python Output Gen](./ML/output.py), [Utils](./ML/Utils), [birdNET Preprocessing](./ML/FeatureExtraction/birdNET_preprocess.py) |
-|@max-kaufmann|[birdNET adaptation](./ML/FeatureExtraction)|
+|@rmlshao|[Python Output Gen](./ML/output.py), [Utils](./ML/Utils)|
+|@max-kaufmann||
 |@Alex4877||
 |@erin-cox||
 
