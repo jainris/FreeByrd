@@ -52,8 +52,8 @@ def run_birdvoxdetect_segmentation(
 
     Returns
     -------
-    pairs : list of tuple (str, list of str)
-        A list, where each element is a pair of file_path and timestamps,
+    pairs : list of tuple (str, list of str, float)
+        A list, where each element is a tuple of file_path, timestamps and sample rate,
         where timestamps is a list of timestamps where a bird call is detected,
         as a str in format hh:mm:ss.ss
     """
@@ -89,7 +89,7 @@ def run_birdvoxdetect_segmentation(
             timestamps = np.concatenate((timestamps, np.array(df["Time (hh:mm:ss)"])))
             timestamps = np.sort(timestamps, kind="mergesort")
         if timestamps.shape[0] > 0:
-            found_birds.append((file_name, timestamps))
+            found_birds.append((file_name, timestamps, samplerate))
     if os.path.isfile(save_path):
         os.remove(save_path)
     return found_birds

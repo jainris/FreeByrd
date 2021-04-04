@@ -1,15 +1,9 @@
-Lasagne @ https://github.com/Lasagne/Lasagne/archive/master.zip
-pandas
-pytest
-h5py
-noisereduce
-Theano @ https://github.com/Theano/Theano/archive/master.zip
-SoundFile
-librosa
+SoundFile==0.10.3.post1
 numpy
-Keras
+pandas
+noisereduce==1.1.0
+Keras==2.4.3
 scipy
 birdvoxdetect==0.5.0
-pydub
 scikit_learn
-wget
+tensorflow

@@ -33,9 +33,13 @@ def parse_detections(detections):
     """
 
     detections_parsed = []
-    for (filename, timestamps) in detections:
+    for (filename, timestamps, samplerate) in detections:
         detections_parsed.append(
-            [filename, [convert_ts_format(timestamp) for timestamp in timestamps]]
+            [
+                filename,
+                [convert_ts_format(timestamp) for timestamp in timestamps],
+                samplerate,
+            ]
         )
     return detections_parsed
 
@@ -57,7 +61,7 @@ def build_detection_map(detections):
     detection_map : dict from str to set of int
     """
     detection_map = {}
-    for (filename, timestamps) in detections:
+    for (filename, timestamps, sr) in detections:
         if filename not in detection_map:
             detection_map[filename] = set()
         for timestamp in timestamps:
@@ -65,7 +69,7 @@ def build_detection_map(detections):
     return detection_map
 
 
-def get_intervals(timestamps, length=3):
+def get_intervals(timestamps, length=3.0):
     """
     Returns the minimum interval set that captures all time detections.
 
@@ -73,7 +77,7 @@ def get_intervals(timestamps, length=3):
     ----------
     timestamps : list of float
 
-    length : int
+    length : float
 
     Returns
     -------
@@ -103,6 +107,10 @@ def get_intervals(timestamps, length=3):
         ref_itr = itr
 
     return intervals
+
+
+def calc_time_interval(samplerate, req_length=144000.0):
+    return req_length / float(samplerate)
 
 
 def get_timestamps(detections, length=3):
@@ -135,8 +143,8 @@ def get_timestamps(detections, length=3):
     detections_parsed = parse_detections(detections)
     detection_map = build_detection_map(detections_parsed)
 
-    for (filename, timestamps) in detections_parsed:
-        intervals = get_intervals(timestamps)
+    for (filename, timestamps, samplerate) in detections_parsed:
+        intervals = get_intervals(timestamps, calc_time_interval(samplerate))
         birdnet_input.append((filename, intervals))
 
     return detection_map, birdnet_input

@@ -5,7 +5,7 @@ from ML.Utils.get_timestamps import get_timestamps
 from ML.BirdVoxDetect import run_birdvoxdetect_segmentation
 from ML.Clusterer.dominantset import get_clusters_using_dominant_sets
 from ML.Clusterer.somandkmeans import get_clusters_using_SOM_and_k_means
-from ML.FeatureExtraction.classification import get_activations
+from ML.FeatureExtraction.birdNET_feature_extraction import get_activations
 from ML.output import create_output
 
 

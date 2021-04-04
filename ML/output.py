@@ -49,7 +49,7 @@ def create_flutter_output(outFrame, outDir):
     Auxiliary Function to create output for Flutter Frontend.
     """
     map_from_type_to_files_with_secs = {}
-    for i in range(len(outFrame)):
+    for i in outFrame.index:
         if outFrame["CallType"][i] not in map_from_type_to_files_with_secs.keys():
             map_from_type_to_files_with_secs[outFrame["CallType"][i]] = []
         map_from_type_to_files_with_secs[outFrame["CallType"][i]].append(
