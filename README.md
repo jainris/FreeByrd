@@ -18,10 +18,12 @@ Our solution implements a pipeline, which consists of 3 parts:
 ---
 ## Installation
 Two ways:
-1. Download the binaries from [FreeByrd on SourceForge](https://sourceforge.net/projects/freebyrd/files/latest/download)
+1. Download the binaries from [FreeByrd on SourceForge](https://sourceforge.net/projects/freebyrd/files/latest/download) or [FreeByrd on GitHub](https://www.github.com/jainris/FreeByrd/releases/latest/download/FreeByrd.zip)
+    * Unzip the file
+    * Run FreeByrd\\freebyrd.bat
 1. Build this repository.
-    * Requires Python (only tested on 3.7 64-bit).
-    * Requires Flutter.
+    * Requires Python (only tested on 3.7 64-bit)
+    * Requires Flutter
 
 ---
 ## Note
