@@ -17,12 +17,11 @@ Our solution implements a pipeline, which consists of 3 parts:
 
 ---
 ## Installation
-1. The folder named [Release](./Release) contains the [main application executable](./Release/freebyrd.exe).
-1. Requires Python (only tested on 3.7 64-bit)
-    * Download Link: https://www.python.org/ftp/python/3.7.9/python-3.7.9-amd64.exe
-    * Guide: https://wiki.python.org/moin/BeginnersGuide/Download
-    * The Path variable must be set to include python and it's libraries
-     (refer to https://docs.python.org/3/using/windows.html for how-to)
+Two ways:
+1. Download the binaries from [FreeByrd on SourceForge](https://sourceforge.net/projects/freebyrd/files/latest/download)
+1. Build this repository.
+    * Requires Python (only tested on 3.7 64-bit).
+    * Requires Flutter.
 
 ---
 ## Note
