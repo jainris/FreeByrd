@@ -33,6 +33,7 @@ def main():
         noise_reduction=noise_reduction,
         noise_file=noise_file,
         threshold=threshold,
+        outdir=outDir,
     )
     detection_map, birdnet_input = get_timestamps(list_of_filenames_and_timestamps)
 

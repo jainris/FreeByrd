@@ -17,12 +17,30 @@ def get_mono(file_path):
     return a, sr
 
 
+def get_temp_name(outdir):
+    i = 0
+    b = True
+    temp_csv_name = "temp{}.csv".format(i)
+    temp_wav_name = "temp{}.wav".format(i)
+    while b:
+        b = False
+        while os.path.exists(os.path.join(outdir, temp_csv_name)):
+            i += 1
+            temp_csv_name = "temp{}.csv".format(i)
+        temp_wav_name = "temp{}.wav".format(i)
+        if os.path.exists(os.path.join(outdir, temp_wav_name)):
+            b = True
+            i += 1
+    return os.path.join(outdir, temp_wav_name), os.path.join(outdir, temp_csv_name)
+
+
 def run_birdvoxdetect_segmentation(
     file_names=None,
     dataset_dir=None,
     noise_reduction=False,
     noise_file=None,
     threshold=50.0,
+    outdir=None,
 ):
     """
     Runs birdvoxdetect for getting timestamps of bird calls.
@@ -61,8 +79,7 @@ def run_birdvoxdetect_segmentation(
     # giving a random name so as to prevent such a file from existing, and
     # saving it in the same folder as this file. This ensures the checklist
     # generated is also saved in this folder.
-    save_path = "temp_file_dkufjsnikdufnisdbfasidnfiua23784t.wav"
-    save_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), save_path)
+    save_path, out_path = get_temp_name(outdir)
     threshold = min(max(threshold, 10.0), 90.0)
     if file_names is None:
         assert (
@@ -92,4 +109,6 @@ def run_birdvoxdetect_segmentation(
             found_birds.append((file_name, timestamps, samplerate))
     if os.path.isfile(save_path):
         os.remove(save_path)
+    if os.path.isfile(out_path):
+        os.remove(out_path)
     return found_birds
